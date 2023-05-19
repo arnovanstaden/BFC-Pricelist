@@ -1,19 +1,29 @@
 import { Theme } from 'src/theme';
 import '@styles/global.scss';
 
-import { Josefin_Sans } from 'next/font/google'
+import { Josefin_Sans, Lato } from 'next/font/google'
+import classNames from 'classnames';
 
 const josefinSans = Josefin_Sans({
-  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   preload: true,
   subsets: ['latin'],
   variable: '--font-josefin',
+  display: 'swap',
+});
+
+const lato = Lato({
+  weight: ['300', '400'],
+  style: ['normal', 'italic'],
+  preload: true,
+  subsets: ['latin'],
+  variable: '--font-lato',
+  display: 'swap',
 });
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={classNames(lato.className, josefinSans.variable)}>
       <body>
         <Theme>
           {children}

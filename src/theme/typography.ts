@@ -7,7 +7,7 @@ const typography: TypographyOptions = {
   fontWeightRegular: 300,
   fontWeightMedium: 500,
   fontWeightBold: 700,
-  fontFamily: 'Josefin Sans',
+  fontFamily: 'inherit',
   h1: {
     fontWeight: 700,
     lineHeight: 80 / 64,
