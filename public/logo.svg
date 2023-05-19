@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="1242.6667"
+   height="418.66666"
+   viewBox="0 0 1242.6667 418.66666"
+   sodipodi:docname="BFC Logo.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath24">
+      <path
+         d="M 0,314 H 932 V 0 H 0 Z"
+         id="path22" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="BFC Logo"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,418.66667)">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.95648988,0,0,-1,2.7373,108.2139)"
+       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:179.864px;font-family:'Theano Didot';-inkscape-font-specification:TheanoDidot-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text12"><tspan
+         x="0 116.5518 231.39491"
+         y="0"
+         sodipodi:role="line"
+         id="tspan10">BFC</tspan></text>
+    <g
+       id="g14"
+       transform="translate(401,291)">
+      <path
+         d="M 0,0 V -268"
+         style="fill:none;stroke:#000000;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+         id="path16" />
+    </g>
+    <g
+       id="g18">
+      <g
+         id="g20"
+         clip-path="url(#clipPath24)">
+        <text
+           xml:space="preserve"
+           transform="matrix(1,0,0,-1,462.999,225.3047)"
+           style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:102.9px;font-family:'Theano Didot';-inkscape-font-specification:TheanoDidot-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="text28"><tspan
+             x="0 66.370308 113.80707 162.58153 219.69086 257.45505 305.96198 360.293 385.91504"
+             y="0"
+             sodipodi:role="line"
+             id="tspan26">Beautox &amp;</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       transform="matrix(1,0,0,-1,462.999,129.0898)"
+       style="font-variant:normal;font-weight:normal;font-stretch:normal;font-size:102.9px;font-family:'Theano Didot';-inkscape-font-specification:TheanoDidot-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text34"><tspan
+         x="0 65.392761 94.616272 123.53109 152.44591 199.88266"
+         y="0"
+         sodipodi:role="line"
+         id="tspan30">Filler</tspan><tspan
+         x="0 73.779083 102.6939 131.91742 189.84995 219.07346"
+         y="96.21122"
+         sodipodi:role="line"
+         id="tspan32">Clinic</tspan></text>
+  </g>
+</svg>

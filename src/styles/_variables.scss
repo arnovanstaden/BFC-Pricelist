@@ -1,0 +1,44 @@
+$header-height: 62px;
+$page-top-padding: calc($header-height + 1rem);
+
+// Breakpoints
+$breakpoint-xs: 360px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 769px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1600px;
+
+// Mixins
+@mixin reset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-button {
+  background-color: unset;
+  border: none;
+  padding: 0;
+  outline: none;
+  font-weight: $font-weight-default;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@mixin reset-input {
+  border: none;
+  background: transparent;
+  letter-spacing: 0.5px;
+  outline: none;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+  font-size: 1rem;
+  font-weight: $font-weight-light;
+
+  &::-webkit-autofill {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}

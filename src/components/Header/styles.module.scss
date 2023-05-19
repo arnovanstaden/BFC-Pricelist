@@ -1,0 +1,23 @@
+.Header {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 0.1px solid rgba(black, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 10px 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $header-height;
+  z-index: 100;
+  background-color: white;
+
+  .logo {
+    display: flex;
+  }
+
+  .icon {
+    color: black;
+  }
+}

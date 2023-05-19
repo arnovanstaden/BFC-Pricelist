@@ -1,0 +1,19 @@
+.notificationContainer {
+  max-width: 40vw;
+  width: fit-content;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 60vw;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 75vw;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    top: 1rem;
+    max-width: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
