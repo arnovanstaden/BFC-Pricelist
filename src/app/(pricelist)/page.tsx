@@ -1,11 +1,21 @@
-import { Grid } from '@my-mui/material';
+import { Box } from '@my-mui/material';
+import Heading from './components/Heading/Heading';
 import Product from './components/Product';
 
 const PriceListPage = (): JSX.Element | null => {
   return (
-    <Grid>
+    <>
+      <Heading>
+        Treatments
+      </Heading>
       <Product />
-    </Grid>
+
+      <Box sx={{ paddingTop: '3rem' }} />
+      <Heading>
+        Products
+      </Heading>
+      <Product />
+    </>
   );
 };
 
