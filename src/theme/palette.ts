@@ -1,5 +1,4 @@
-import { PaletteOptions, SimplePaletteColorOptions } from '@mui/material';
-// import { alpha } from '@mui/material/styles';
+import { PaletteOptions, } from '@mui/material';
 
 
 export const common = {
