@@ -2,8 +2,8 @@ import styles from './styles.module.scss';
 import LogoImg from '@public/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Instagram, Facebook } from '@icons';
-import { IconButton } from '@my-mui';
+import { Instagram, Facebook } from '@my-mui/icons-material';
+import { IconButton } from '@my-mui/material';
 
 const Header = ({ admin }: { admin?: boolean }): JSX.Element | null => (
   <header className={styles.Header}>

@@ -25,8 +25,8 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@lib/*": ["src/lib/*"],
-      "@my-mui": ["src/lib/mui"],
-      "@icons": ["src/lib/mui/icons.ts"],
+      "@my-mui/material": ["src/lib/mui"],
+      "@my-mui/icons-material": ["src/lib/mui/icons.tsx"],
       "@types": ["src/types/index.ts"],
       "@styles/*": ["src/styles/*"]
     }

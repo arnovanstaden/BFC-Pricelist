@@ -7,6 +7,7 @@ const typography: TypographyOptions = {
   fontWeightRegular: 300,
   fontWeightMedium: 500,
   fontWeightBold: 700,
+  fontFamily: 'Josefin Sans',
   h1: {
     fontWeight: 700,
     lineHeight: 80 / 64,
@@ -53,7 +54,7 @@ const typography: TypographyOptions = {
     fontSize: pxToRem(16),
   },
   body2: {
-    fontWeight: 400,
+    fontWeight: 300,
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
   },

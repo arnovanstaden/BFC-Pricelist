@@ -1,5 +1,6 @@
 import Header from '@components/Header';
-import styles from './styles.module.scss';
+import { Container, Grid } from '@my-mui/material';
+
 
 export const metadata = {
   title: 'Pricelist | The Beautox and Filler Clinic',
@@ -10,8 +11,10 @@ const PriceListLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header />
-      <main className={styles.main}>
-        {children}
+      <main>
+        <Container maxWidth="lg">
+          {children}
+        </Container>
       </main>
     </>
   )

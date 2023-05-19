@@ -1,8 +1,11 @@
+import { Grid } from '@my-mui/material';
+import Product from './components/Product';
+
 const PriceListPage = (): JSX.Element | null => {
   return (
-    <div>
-      <h1>Pricelist</h1>
-    </div>
+    <Grid>
+      <Product />
+    </Grid>
   );
 };
 

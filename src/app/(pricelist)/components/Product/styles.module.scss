@@ -1,0 +1,14 @@
+.Product {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+
+  .name {
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    text-align: right;
+  }
+}
