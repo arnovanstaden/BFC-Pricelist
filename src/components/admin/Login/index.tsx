@@ -1,16 +1,14 @@
 import styles from './styles.module.scss';
 import { Button, TextField, Typography } from '@mui/material';
 import { FormEvent, useState } from 'react';
-import { useAuth } from '@hooks/auth';
 
 const DashboardLoginForm = (): JSX.Element | null => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   })
-  const { login } = useAuth();
 
-  const handleLogin = async () => login(credentials)
+  const handleLogin = async () => { };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
