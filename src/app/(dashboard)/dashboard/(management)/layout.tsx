@@ -1,39 +1,24 @@
-'use client';
-
-import { Button, Grid, List, ListItem } from '@my-mui/material';
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { usePathname } from 'next/navigation';
+import SideBar from './components/SideBar';
+import { Grid, Container } from '@my-mui/material';
 
 const ManagementLayout = async ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
-
-  const links = [{
-    text: 'Treatments',
-    href: '/dashboard'
-  }, {
-    text: 'Products',
-    href: '/dashboard/products'
-  }];
 
   return (
-    <Grid container className={styles.ManagementLayout}>
-      <Grid item component="aside" className={styles.sideBar}>
-        <List>
-          {links.map((link) => (
-            <ListItem key={link.text}>
-              <Link className={styles.link} href={link.href}>
-                <Button fullWidth variant={pathname === link.href ? 'contained' : 'outlined'}>
-                  {link.text}
-                </Button>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
+    <Grid container>
+      <Grid item xs={0} md={2} xl={1}>
+        <SideBar />
       </Grid>
 
-      <Grid item>
-        {children}
+      <Grid item justifyContent="center" xs={12} md={10} xl={11}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            paddingTop: '2rem',
+            paddingBottom: '2rem',
+          }}
+        >
+          {children}
+        </Container>
       </Grid>
     </Grid>
   );

@@ -1,0 +1,11 @@
+.SideBar {
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 10px 0px;
+  height: 100vh;
+  padding: 1rem 0;
+  width: 100%;
+
+  .link {
+    display: block;
+    width: 100%;
+  }
+}
