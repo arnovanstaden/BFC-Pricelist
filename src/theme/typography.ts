@@ -42,11 +42,13 @@ const typography: TypographyOptions = {
     fontWeight: 500,
     lineHeight: 1.5,
     fontSize: pxToRem(16),
+    color: 'GrayText'
   },
   subtitle2: {
     fontWeight: 500,
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
+    color: 'GrayText'
   },
   body1: {
     fontWeight: 400,
@@ -61,6 +63,7 @@ const typography: TypographyOptions = {
   caption: {
     lineHeight: 1.5,
     fontSize: pxToRem(12),
+    color: 'GrayText'
   },
   overline: {
     fontWeight: 700,

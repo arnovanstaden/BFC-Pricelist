@@ -9,7 +9,7 @@ const nextConfig = {
     },
     "@mui/icons-material": {
       transform: "@mui/material/{{member}}"
-    }
+    },
   }
 }
 

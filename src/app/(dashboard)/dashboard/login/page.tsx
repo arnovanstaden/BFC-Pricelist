@@ -1,7 +1,9 @@
+import DashboardLoginForm from './Form';
+
 const Component = (): JSX.Element | null => {
   return (
     <div>
-      Login
+      <DashboardLoginForm />
     </div>
   );
 };

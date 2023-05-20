@@ -1,18 +1,20 @@
+'use client';
+
 import styles from './styles.module.scss';
 import { Button, TextField, Typography } from '@mui/material';
 import { FormEvent, useState } from 'react';
+import { useAuthLogin } from '@hooks/auth';
 
 const DashboardLoginForm = (): JSX.Element | null => {
+  const { handleLogin } = useAuthLogin()
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   })
 
-  const handleLogin = async () => { };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    handleLogin()
+    handleLogin(credentials)
   }
 
   return (
@@ -40,7 +42,7 @@ const DashboardLoginForm = (): JSX.Element | null => {
         <Button
           type="submit"
           variant="contained"
-          onClick={handleLogin}
+          onClick={handleSubmit}
           fullWidth
         >
           Login
