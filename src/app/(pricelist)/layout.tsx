@@ -12,7 +12,10 @@ const PriceListLayout = async ({ children }: { children: React.ReactNode }) => {
     <>
       <Header />
       <main>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{
+          paddingTop: '2rem',
+          paddingBottom: '2rem',
+        }}>
           {children}
         </Container>
       </main>
