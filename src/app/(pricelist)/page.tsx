@@ -4,11 +4,11 @@ import Product from './components/Product';
 import Treatment from './components/Treatment';
 import supabase from '@lib/supabase';
 
-export const revalidate = 0;
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const PriceListPage = async (): Promise<JSX.Element | null> => {
-  const products = (await supabase.from('products').select('*')).data;
-  const treatments = (await supabase.from('treatments').select('*')).data;
+  const { data: products } = (await supabase.from('products').select('*'));
+  const { data: treatments } = (await supabase.from('treatments').select('*'));
 
   return (
     <>
