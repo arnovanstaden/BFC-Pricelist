@@ -1,5 +1,3 @@
 "use client";
-import { Facebook, Instagram, Logout } from "@mui/icons-material"
 
-
-export { Facebook, Instagram, Logout } from "@mui/icons-material";
+export { Facebook, Instagram, Logout, WhatsApp } from "@mui/icons-material";
