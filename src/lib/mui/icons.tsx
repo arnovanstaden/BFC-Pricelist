@@ -1,3 +1,3 @@
 "use client";
 
-export { Facebook, Instagram, Logout, WhatsApp } from "@mui/icons-material";
+export { Facebook, Instagram, Logout, WhatsApp, Edit, Delete } from "@mui/icons-material";

@@ -1,7 +1,7 @@
 import { Box } from '@my-mui/material';
 import Heading from './components/Heading/Heading';
-import Product from './components/Product';
-import Treatment from './components/Treatment';
+import Product from '@components/items/Product';
+import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
 
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
@@ -18,7 +18,7 @@ const PriceListPage = async (): Promise<JSX.Element | null> => {
             Treatments
           </Heading>
 
-          {treatments?.map((treatment) => <Treatment key={treatment.id}  {...treatment} />)}
+          {treatments?.map((treatment) => <Treatment key={treatment.id} treatment={treatment} />)}
         </>
       )}
 
