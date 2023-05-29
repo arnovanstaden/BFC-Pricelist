@@ -8,6 +8,8 @@ interface IProps {
   }
 }
 
+export const revalidate = 0;
+
 const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
   const { data: treatments } = (await supabase.from('treatments').select().eq('id', params.id));
 
