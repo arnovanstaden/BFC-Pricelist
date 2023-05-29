@@ -2,14 +2,13 @@ import SideBar from './components/SideBar';
 import { Grid, Container } from '@my-mui/material';
 
 const ManagementLayout = async ({ children }: { children: React.ReactNode }) => {
-
   return (
     <Grid container>
-      <Grid item xs={0} md={2} xl={1}>
+      <Grid item xs={0} sm={3} lg={2}>
         <SideBar />
       </Grid>
 
-      <Grid item justifyContent="center" xs={12} md={10} xl={11}>
+      <Grid item justifyContent="center" xs={12} md={9} lg={10}>
         <Container
           maxWidth="lg"
           sx={{

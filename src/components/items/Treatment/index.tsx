@@ -39,7 +39,7 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
       </div>
       {admin && (
         <div className={styles.actions}>
-          <Link href={`/dashboard/edit/${treatment.id}`}>
+          <Link href={`/dashboard/treatments/${treatment.id}`}>
             <IconButton>
               <Edit />
             </IconButton>
@@ -48,7 +48,7 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
         </div>
       )}
     </div>
-  );
+  )
 };
 
 export default Treatment;

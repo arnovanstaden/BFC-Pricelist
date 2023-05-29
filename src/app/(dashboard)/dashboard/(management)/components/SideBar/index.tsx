@@ -10,7 +10,7 @@ const SideBar = (): JSX.Element | null => {
 
   const links = [{
     text: 'Treatments',
-    href: '/dashboard'
+    href: '/dashboard/treatments'
   }, {
     text: 'Products',
     href: '/dashboard/products'
@@ -22,7 +22,7 @@ const SideBar = (): JSX.Element | null => {
         {links.map((link) => (
           <ListItem key={link.text}>
             <Link className={styles.link} href={link.href}>
-              <Button fullWidth variant={pathname === link.href ? 'contained' : 'outlined'}>
+              <Button fullWidth variant={pathname.includes(link.href) ? 'contained' : 'outlined'}>
                 {link.text}
               </Button>
             </Link>
