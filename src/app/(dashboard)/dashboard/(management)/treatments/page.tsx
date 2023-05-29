@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const TreatmentsPage = async (): Promise<JSX.Element | null> => {
-  const { data: treatments } = (await supabase.from('treatments').select('*'));
+  const { data: treatments } = await supabase.from('treatments').select('*');
 
   if (!treatments || treatments.length < 0) {
     return <Typography >No Treatments</Typography>;

@@ -6,6 +6,7 @@ import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
+import { revalidatePriceList } from '@lib/revalidation';
 
 const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
@@ -41,20 +42,19 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
     if (!formIsValid) return;
 
     const response = await supabase.from('treatments').update(treatment!).eq('id', dbTreatment?.id!)
-    console.log(response);
     notify('Treatment Updated');
     nextRouter.push('/dashboard/treatments');
+    revalidatePriceList();
   };
 
   const insertTreatment = async () => {
     const formIsValid = validate();
-    console.log(formIsValid)
     if (!formIsValid) return;
 
     const response = await supabase.from('treatments').insert(treatment!)
-    console.log(response);
     notify('Treatment Added');
     nextRouter.push('/dashboard/treatments');
+    revalidatePriceList();
   }
 
   return (
@@ -132,7 +132,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             label="unit"
             variant="outlined"
             type="text"
-            name="Unit"
+            name="unit"
             fullWidth
             value={treatment?.unit}
             onChange={updateTreatmentState}
