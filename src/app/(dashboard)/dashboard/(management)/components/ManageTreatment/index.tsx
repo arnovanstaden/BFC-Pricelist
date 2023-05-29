@@ -1,14 +1,14 @@
 'use client';
 
 import { Grid, TextField, Button, Box } from '@my-mui/material';
-import { Treatment } from '@lib/supabase/types';
+import { ITreatment } from '@lib/supabase/types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
 import { revalidatePriceList } from '@lib/revalidation';
 
-const ManageTreatment = ({ treatment, addNew }: { treatment?: Treatment, addNew: boolean }): JSX.Element => {
+const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
 
   const [updatedTreatment, setUpdatedTreatment] = useState(treatment);
@@ -32,8 +32,8 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: Treatment, addNew:
     const value = e.target.value;
     setUpdatedTreatment((prev) => ({
       ...prev,
-      [field as keyof Treatment]: value,
-    }) as Treatment);
+      [field as keyof ITreatment]: value,
+    }) as ITreatment);
   };
 
   const upsertTreatment = async () => {

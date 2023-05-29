@@ -1,8 +1,8 @@
 import { Chip, Typography } from '@my-mui/material';
 import styles from './styles.module.scss';
-import { Product } from '@lib/supabase/types';
+import { IProduct } from '@lib/supabase/types';
 
-const Product = (product: Product): JSX.Element | null => {
+const Product = (product: IProduct): JSX.Element | null => {
   return (
     <div className={styles.Product}>
       <div className={styles.text}>

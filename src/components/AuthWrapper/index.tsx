@@ -1,9 +1,9 @@
 'use client';
 
-import { useAuthVerifySession } from '@hooks/auth';
+import { useAuth } from '@hooks/auth';
 
 const AuthWrapper = ({ children }: { children: React.ReactNode }): JSX.Element | null => {
-  useAuthVerifySession();
+  useAuth();
 
   return (
     <>

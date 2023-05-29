@@ -3,7 +3,7 @@ import supabase from '@lib/supabase';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-export const useAuthVerifySession = () => {
+export const useAuth = () => {
   const nextRouter = useRouter();
   const pathname = usePathname();
 
@@ -12,6 +12,7 @@ export const useAuthVerifySession = () => {
     const session = result.data.session;
 
     if (!session) {
+      document.cookie = "BFC-Auth=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
       return nextRouter.replace('/dashboard/login');
     }
 
@@ -23,10 +24,6 @@ export const useAuthVerifySession = () => {
   useEffect(() => {
     verifyAuth();
   }, []);
-}
-
-export const useAuthLogin = () => {
-  const nextRouter = useRouter();
 
   const handleLogin = async (credentials: {
     email: string;
@@ -35,6 +32,7 @@ export const useAuthLogin = () => {
     .then((res) => {
       const session = res.data.session;
       if (session) {
+        document.cookie = "BFC-Auth=true";
         notify('Welcome Back!');
         return nextRouter.replace('/dashboard');
       }
@@ -42,5 +40,13 @@ export const useAuthLogin = () => {
       notify('Incorrect Credentials');
     })
 
-  return { handleLogin };
+  const logoutUser = async () => {
+    document.cookie = "BFC-Auth=;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    await supabase.auth.signOut();
+    notify('Bye!');
+    nextRouter.replace('/dashboard/login');
+  };
+
+
+  return { handleLogin, logoutUser };
 }

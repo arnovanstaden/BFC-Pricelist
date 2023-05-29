@@ -1,19 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { Instagram, Facebook, Logout } from '@my-mui/icons-material';
+import { Logout } from '@my-mui/icons-material';
 import { IconButton } from '@my-mui/material';
-import supabase from '@lib/supabase';
-import { notify } from '@lib/notification';
+import { useAuth } from '@hooks/auth';
 
 const LogoutButton = (): JSX.Element | null => {
-  const nextRouter = useRouter();
+  const { logoutUser } = useAuth();
 
-  const logoutUser = async () => {
-    await supabase.auth.signOut();
-    notify('Bye!');
-    nextRouter.replace('/dashboard/login');
-  };
 
   return (
     <IconButton disableRipple onClick={logoutUser} >

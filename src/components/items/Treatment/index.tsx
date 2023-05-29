@@ -1,6 +1,6 @@
 import { Chip, Typography } from '@my-mui/material';
 import styles from './styles.module.scss';
-import { Treatment } from '@lib/supabase/types';
+import { ITreatment } from '@lib/supabase/types';
 import classNames from 'classnames';
 import { Edit, Delete } from '@my-mui/icons-material';
 import { IconButton } from '@my-mui/material';
@@ -8,7 +8,7 @@ import Link from 'next/link';
 import DeleteButton from './DeleteButton';
 
 interface IProps {
-  treatment: Treatment;
+  treatment: ITreatment;
   admin?: boolean;
 }
 

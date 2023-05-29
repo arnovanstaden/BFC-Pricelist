@@ -2,6 +2,7 @@ import { Button, Grid, Typography } from '@my-mui/material';
 import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
 import Link from 'next/link';
+import { ITreatment } from '@lib/supabase/types';
 
 export const revalidate = 0;
 
@@ -12,6 +13,10 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
     return <Typography >No Treatments</Typography>;
   }
 
+  const groupedTreatments: { [key: string]: ITreatment[] } = {
+
+  };
+
   return (
     <>
       <Grid container justifyContent="right" sx={{ marginBottom: '1rem' }}>
@@ -21,6 +26,8 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
           </Button>
         </Link>
       </Grid>
+
+
       {treatments.map((treatment) => <Treatment key={treatment.id} treatment={treatment} admin />)}
     </>
   )

@@ -4,7 +4,7 @@ import { Grid, Container } from '@my-mui/material';
 const ManagementLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <Grid container>
-      <Grid item xs={0} sm={3} lg={2}>
+      <Grid item xs={12} sm={3} lg={2}>
         <SideBar />
       </Grid>
 

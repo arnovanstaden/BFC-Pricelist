@@ -3,10 +3,10 @@
 import styles from './styles.module.scss';
 import { Button, TextField, Typography } from '@mui/material';
 import { FormEvent, useState } from 'react';
-import { useAuthLogin } from '@hooks/auth';
+import { useAuth } from '@hooks/auth';
 
 const DashboardLoginForm = (): JSX.Element | null => {
-  const { handleLogin } = useAuthLogin()
+  const { handleLogin } = useAuth()
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
