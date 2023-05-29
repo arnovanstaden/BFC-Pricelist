@@ -4,8 +4,11 @@
   grid-template-columns: 1fr auto auto;
   gap: 1rem;
 
-  .name {
+  .topLeft {
     margin-bottom: 0.5rem;
+  }
+
+  .name {
     display: flex;
     gap: 1rem;
   }
@@ -26,6 +29,10 @@
     svg {
       font-size: 1.25rem;
     }
+  }
+
+  .description {
+    font-weight: 300;
   }
 
   &.admin {

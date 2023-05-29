@@ -67,3 +67,15 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
+
+input,
+textarea {
+
+  &::placeholder,
+  &::placeholder {
+    font-weight: 300 !important;
+    color: rebeccapurple !important;
+    font-style: italic !important;
+    font-size: 10rem;
+  }
+}

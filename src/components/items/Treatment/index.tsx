@@ -21,14 +21,16 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
   return (
     <div className={classes}>
       <div className={styles.text}>
-        <Typography variant="subtitle1" className={styles.brand}>{treatment.brand}</Typography>
-
-        <div className={styles.name}>
-          <Typography variant="h5">{treatment.name}</Typography>
-          {treatment.range && <Chip label={treatment.range} size="small" />}
+        <div className={styles.topLeft}>
+          <div className={styles.name}>
+            <Typography variant="h5">{treatment.name}</Typography>
+            {treatment.range && <Chip label={treatment.range} size="small" />}
+          </div>
+          <Typography variant="subtitle1" className={styles.brand}>{treatment.brand}</Typography>
         </div>
+
         {!admin && (
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph className={styles.description}>
             {treatment.description}
           </Typography>
         )}

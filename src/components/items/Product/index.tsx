@@ -21,14 +21,16 @@ const Product = ({ product, admin }: IProps): JSX.Element | null => {
   return (
     <div className={classes}>
       <div className={styles.text}>
-        <Typography variant="subtitle1" className={styles.brand}>{product.brand}</Typography>
-
-        <div className={styles.name}>
-          <Typography variant="h5">{product.name}</Typography>
-          {product.range && <Chip label={product.range} size="small" />}
+        <div className={styles.topLeft}>
+          <div className={styles.name}>
+            <Typography variant="h5">{product.name}</Typography>
+            {product.range && <Chip label={product.range} size="small" />}
+          </div>
+          <Typography variant="subtitle1" className={styles.brand}>{product.brand}</Typography>
         </div>
+
         {!admin && (
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" paragraph className={styles.description}>
             {product.usage}
           </Typography>
         )}
