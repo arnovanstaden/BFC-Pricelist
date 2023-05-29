@@ -25,7 +25,7 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
 
         <div className={styles.name}>
           <Typography variant="h5">{treatment.name}</Typography>
-          <Chip label={treatment.range} size="small" />
+          {treatment.range && <Chip label={treatment.range} size="small" />}
         </div>
         {!admin && (
           <Typography variant="body1" paragraph>

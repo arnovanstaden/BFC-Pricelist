@@ -19,7 +19,7 @@ const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
     <>
       <Typography variant="h2">Edit Treatment</Typography>
       <Divider sx={{ margin: '1rem 0 2rem' }} light />
-      <ManageTreatment treatment={treatment} />
+      <ManageTreatment dbTreatment={treatment} addNew={false} />
     </>
   );
 }
