@@ -3,7 +3,7 @@ import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
 import Link from 'next/link';
 
-export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
+export const revalidate = 0;
 
 const TreatmentsPage = async (): Promise<JSX.Element | null> => {
   const { data: treatments } = await supabase.from('treatments').select('*');
