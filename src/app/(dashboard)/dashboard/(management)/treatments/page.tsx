@@ -2,20 +2,15 @@ import { Button, Grid, Typography } from '@my-mui/material';
 import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
 import Link from 'next/link';
-import { ITreatment } from '@lib/supabase/types';
 
 export const revalidate = 0;
 
 const TreatmentsPage = async (): Promise<JSX.Element | null> => {
-  const { data: treatments } = await supabase.from('treatments').select('*');
+  const { data: treatments } = await supabase.from('treatments').select('*').order('range', { ascending: true })
 
   if (!treatments || treatments.length < 0) {
     return <Typography >No Treatments</Typography>;
   }
-
-  const groupedTreatments: { [key: string]: ITreatment[] } = {
-
-  };
 
   return (
     <>
