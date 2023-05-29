@@ -20,8 +20,8 @@ const Product = ({ product, admin }: IProps): JSX.Element | null => {
 
   return (
     <div className={classes}>
-      <div className={styles.text}>
-        <div className={styles.topLeft}>
+      <div className={styles.top}>
+        <div>
           <div className={styles.name}>
             <Typography variant="h5">{product.name}</Typography>
             {product.range && <Chip label={product.range} size="small" />}
@@ -29,25 +29,27 @@ const Product = ({ product, admin }: IProps): JSX.Element | null => {
           <Typography variant="subtitle1" className={styles.brand}>{product.brand}</Typography>
         </div>
 
-        {!admin && (
-          <Typography variant="body1" paragraph className={styles.description}>
-            {product.usage}
-          </Typography>
+        <div className={styles.price}>
+          <Typography variant="h6">R {product.price}</Typography>
+          <Typography variant="caption" className={styles.unit}>{product.size}</Typography>
+        </div>
+
+        {admin && (
+          <div className={styles.actions}>
+            <Link href={`/dashboard/products/${product.id}`}>
+              <IconButton>
+                <Edit />
+              </IconButton>
+            </Link>
+            <DeleteButton id={product.id} />
+          </div>
         )}
       </div>
-      <div className={styles.price}>
-        <Typography variant="h6">R {product.price}</Typography>
-        <Typography variant="caption" className={styles.unit}>{product.size}</Typography>
-      </div>
-      {admin && (
-        <div className={styles.actions}>
-          <Link href={`/dashboard/products/${product.id}`}>
-            <IconButton>
-              <Edit />
-            </IconButton>
-          </Link>
-          <DeleteButton id={product.id} />
-        </div>
+
+      {!admin && (
+        <Typography variant="body1" paragraph className={styles.description}>
+          {product.usage}
+        </Typography>
       )}
     </div>
   )

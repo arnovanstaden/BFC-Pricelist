@@ -20,8 +20,8 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
 
   return (
     <div className={classes}>
-      <div className={styles.text}>
-        <div className={styles.topLeft}>
+      <div className={styles.top}>
+        <div>
           <div className={styles.name}>
             <Typography variant="h5">{treatment.name}</Typography>
             {treatment.range && <Chip label={treatment.range} size="small" />}
@@ -29,25 +29,27 @@ const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
           <Typography variant="subtitle1" className={styles.brand}>{treatment.brand}</Typography>
         </div>
 
-        {!admin && (
-          <Typography variant="body1" paragraph className={styles.description}>
-            {treatment.description}
-          </Typography>
+        <div className={styles.price}>
+          <Typography variant="h6">R {treatment.price}</Typography>
+          <Typography variant="caption" className={styles.unit}>{treatment.unit}</Typography>
+        </div>
+
+        {admin && (
+          <div className={styles.actions}>
+            <Link href={`/dashboard/treatments/${treatment.id}`}>
+              <IconButton>
+                <Edit />
+              </IconButton>
+            </Link>
+            <DeleteButton id={treatment.id} />
+          </div>
         )}
       </div>
-      <div className={styles.price}>
-        <Typography variant="h6">R {treatment.price}</Typography>
-        <Typography variant="caption" className={styles.unit}>{treatment.unit}</Typography>
-      </div>
-      {admin && (
-        <div className={styles.actions}>
-          <Link href={`/dashboard/treatments/${treatment.id}`}>
-            <IconButton>
-              <Edit />
-            </IconButton>
-          </Link>
-          <DeleteButton id={treatment.id} />
-        </div>
+
+      {!admin && (
+        <Typography variant="body1" paragraph className={styles.description}>
+          {treatment.description}
+        </Typography>
       )}
     </div>
   )

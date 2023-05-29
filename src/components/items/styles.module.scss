@@ -1,11 +1,11 @@
 .Item {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 1rem;
 
-  .topLeft {
-    margin-bottom: 0.5rem;
+  .top {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    width: 100%;
   }
 
   .name {
@@ -33,6 +33,8 @@
 
   .description {
     font-weight: 300;
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
   &.admin {
