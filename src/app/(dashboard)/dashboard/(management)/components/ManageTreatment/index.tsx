@@ -42,9 +42,11 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: Treatment, addNew:
     if (!formIsValid) return;
 
     await supabase.from('treatments').upsert(updatedTreatment).eq('id', updatedTreatment.id);
-    notify(addNew ? 'New Treatment Added' : 'Treatment Updated');
-    nextRouter.push('/dashboard/treatments');
     revalidatePriceList();
+
+    notify(addNew ? 'New Treatment Added' : 'Treatment Updated');
+    await nextRouter.push('/dashboard/treatments');
+    nextRouter.refresh();
   }
 
   return (
