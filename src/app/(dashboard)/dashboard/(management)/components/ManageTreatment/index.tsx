@@ -8,51 +8,41 @@ import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
 import { revalidatePriceList } from '@lib/revalidation';
 
-const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, addNew: boolean }): JSX.Element => {
+const ManageTreatment = ({ treatment, addNew }: { treatment?: Treatment, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
 
-  const [treatment, setTreatment] = useState(dbTreatment);
+  const [updatedTreatment, setUpdatedTreatment] = useState(treatment);
+
 
   const validate = (): boolean => {
-    if (!treatment?.name) {
+    if (!updatedTreatment?.name) {
       notify('Name is Required', 'error');
       return false;
     }
-    if (!treatment?.price) {
+    if (!updatedTreatment?.price) {
       notify('Price is Required', 'error');
       return false;
     }
     return true;
   }
 
+
   const updateTreatmentState = (e: ChangeEvent<HTMLInputElement>) => {
     const field = e.target.name;
     const value = e.target.value;
-    setTreatment((prev) => {
-      const newTreatment = prev || {} as Treatment;
-      return {
-        ...newTreatment,
-        [field as keyof Treatment]: value,
-      }
-    })
+    setUpdatedTreatment((prev) => ({
+      ...prev,
+      [field as keyof Treatment]: value,
+    }) as Treatment);
   };
 
-  const updateTreatment = async () => {
+  const upsertTreatment = async () => {
+    if (!updatedTreatment) return;
     const formIsValid = validate();
     if (!formIsValid) return;
 
-    const response = await supabase.from('treatments').update(treatment!).eq('id', dbTreatment?.id!)
-    notify('Treatment Updated');
-    nextRouter.push('/dashboard/treatments');
-    revalidatePriceList();
-  };
-
-  const insertTreatment = async () => {
-    const formIsValid = validate();
-    if (!formIsValid) return;
-
-    const response = await supabase.from('treatments').insert(treatment!)
-    notify('Treatment Added');
+    await supabase.from('treatments').upsert(updatedTreatment).eq('id', updatedTreatment.id);
+    notify(addNew ? 'New Treatment Added' : 'Treatment Updated');
     nextRouter.push('/dashboard/treatments');
     revalidatePriceList();
   }
@@ -73,7 +63,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             name="name"
             required
             fullWidth
-            value={treatment?.name}
+            value={updatedTreatment?.name}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -85,7 +75,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             type="text"
             name="brand"
             fullWidth
-            value={treatment?.brand}
+            value={updatedTreatment?.brand}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -98,7 +88,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             name="price"
             required
             fullWidth
-            value={treatment?.price}
+            value={updatedTreatment?.price}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -110,7 +100,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             type="text"
             name="usage"
             fullWidth
-            value={treatment?.usage}
+            value={updatedTreatment?.usage}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -122,7 +112,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             type="text"
             name="range"
             fullWidth
-            value={treatment?.range}
+            value={updatedTreatment?.range}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -134,7 +124,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             type="text"
             name="unit"
             fullWidth
-            value={treatment?.unit}
+            value={updatedTreatment?.unit}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -148,7 +138,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             fullWidth
             multiline
             minRows={3}
-            value={treatment?.description}
+            value={updatedTreatment?.description}
             onChange={updateTreatmentState}
           />
         </Grid>
@@ -159,7 +149,7 @@ const ManageTreatment = ({ dbTreatment, addNew }: { dbTreatment?: Treatment, add
             </Button>
           </Grid>
           <Grid item xs={6} md={3}>
-            <Button variant="contained" fullWidth onClick={addNew ? insertTreatment : updateTreatment}>
+            <Button variant="contained" fullWidth onClick={upsertTreatment}>
               Save
             </Button>
           </Grid>

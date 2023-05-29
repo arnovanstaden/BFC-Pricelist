@@ -11,7 +11,8 @@ const DeleteButton = ({ id }: { id: number }): JSX.Element | null => {
   const nextRouter = useRouter();
 
   const deleteItem = async () => {
-    await supabase.from('treatments').delete().eq('id', id).then((res) => console.error(res));
+    const response = await supabase.from('treatments').delete().eq('id', id);
+    console.log(response)
     await revalidatePriceList();
     await nextRouter.refresh();
     notify('Treatment Deleted');
