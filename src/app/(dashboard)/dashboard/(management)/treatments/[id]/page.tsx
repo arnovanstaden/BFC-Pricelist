@@ -1,4 +1,6 @@
+import { Divider, Typography } from '@my-mui/material';
 import ManageTreatment from '../../components/ManageTreatment';
+import supabase from '@lib/supabase';
 
 interface IProps {
   params: {
@@ -6,6 +8,21 @@ interface IProps {
   }
 }
 
-const EditPage = ({ params }: IProps): Promise<JSX.Element | null> => <ManageTreatment id={params.id} />;
+const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
+  const { data: treatments } = (await supabase.from('treatments').select().eq('id', params.id));
+
+  if (!treatments) return null;
+  const treatment = treatments[0]
+
+
+  return (
+    <>
+      <Typography variant="h2">Edit Treatment</Typography>
+      <Divider sx={{ margin: '1rem 0 2rem' }} light />
+      <ManageTreatment treatment={treatment} />
+    </>
+  );
+}
+
 
 export default EditPage;
