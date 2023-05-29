@@ -32,8 +32,8 @@ const ManageTreatment = ({ treatment }: { treatment?: Treatment }): JSX.Element 
         id="outlined-basic"
         label="Price"
         variant="outlined"
-        type="text"
-        name="number"
+        type="number"
+        name="price"
         required
         fullWidth
         value={treatment?.price}
@@ -46,7 +46,6 @@ const ManageTreatment = ({ treatment }: { treatment?: Treatment }): JSX.Element 
         variant="outlined"
         type="text"
         name="usage"
-        required
         fullWidth
         value={treatment?.usage}
       />
@@ -69,7 +68,6 @@ const ManageTreatment = ({ treatment }: { treatment?: Treatment }): JSX.Element 
         variant="outlined"
         type="text"
         name="Unit"
-        required
         fullWidth
         value={treatment?.unit}
       />
@@ -81,7 +79,6 @@ const ManageTreatment = ({ treatment }: { treatment?: Treatment }): JSX.Element 
         variant="outlined"
         type="text"
         name="description"
-        required
         fullWidth
         multiline
         minRows={3}

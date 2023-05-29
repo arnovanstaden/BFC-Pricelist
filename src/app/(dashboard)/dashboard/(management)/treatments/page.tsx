@@ -1,6 +1,7 @@
-import { Box, Typography } from '@my-mui/material';
+import { Button, Grid, Typography } from '@my-mui/material';
 import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
+import Link from 'next/link';
 
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
@@ -13,6 +14,13 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
 
   return (
     <>
+      <Grid container justifyContent="right" sx={{ marginBottom: '1rem' }}>
+        <Link href="/dashboard/treatments/new">
+          <Button variant="contained">
+            New Treatment
+          </Button>
+        </Link>
+      </Grid>
       {treatments.map((treatment) => <Treatment key={treatment.id} treatment={treatment} admin />)}
     </>
   )
