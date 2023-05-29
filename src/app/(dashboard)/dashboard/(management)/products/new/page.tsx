@@ -1,11 +1,11 @@
-import ManageTreatment from '../components/ManageTreatment';
+import ManageProduct from '../components/ManageProduct';
 import { Divider, Typography } from '@my-mui/material';
 
 const Component = (): JSX.Element | null => (
   <>
-    <Typography variant="h2">New Treatment</Typography>
+    <Typography variant="h2">New Product</Typography>
     <Divider sx={{ margin: '1rem 0 2rem' }} light />
-    <ManageTreatment addNew />
+    <ManageProduct addNew />
   </>
 )
 

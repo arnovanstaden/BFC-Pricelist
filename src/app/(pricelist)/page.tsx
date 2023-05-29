@@ -28,7 +28,7 @@ const PriceListPage = async (): Promise<JSX.Element | null> => {
             <Heading>
               Products
             </Heading>
-            {products?.map((product) => <Product key={product.id}  {...product} />)}
+            {products?.map((product) => <Product key={product.id} product={product} />)}
           </>
         )
       }

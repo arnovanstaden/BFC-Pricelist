@@ -1,51 +1,55 @@
 'use client';
 
 import { Grid, TextField, Button, Box } from '@my-mui/material';
-import { ITreatment } from '@lib/supabase/types';
+import { IProduct } from '@lib/supabase/types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
 import { revalidatePriceList } from '@lib/revalidation';
 
-const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew: boolean }): JSX.Element => {
+const ManageProduct = ({ product, addNew }: { product?: IProduct, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
 
-  const [updatedTreatment, setUpdatedTreatment] = useState(treatment);
+  const [updatedProduct, setUpdatedProduct] = useState(product);
 
 
   const validate = (): boolean => {
-    if (!updatedTreatment?.name) {
+    if (!updatedProduct?.name) {
       notify('Name is Required', 'error');
       return false;
     }
-    if (!updatedTreatment?.price) {
+    if (!updatedProduct?.price) {
       notify('Price is Required', 'error');
+      return false;
+    }
+    if (!updatedProduct?.price) {
+      notify('Brand is Required', 'error');
       return false;
     }
     return true;
   }
 
 
-  const updateTreatmentState = (e: ChangeEvent<HTMLInputElement>) => {
+  const updateProductState = (e: ChangeEvent<HTMLInputElement>) => {
     const field = e.target.name;
     const value = e.target.value;
-    setUpdatedTreatment((prev) => ({
+    setUpdatedProduct((prev) => ({
       ...prev,
-      [field as keyof ITreatment]: value,
-    }) as ITreatment);
+      [field as keyof IProduct]: value,
+    }) as IProduct);
   };
 
-  const upsertTreatment = async () => {
-    if (!updatedTreatment) return;
+  const upsertProduct = async () => {
+    if (!updatedProduct) return;
     const formIsValid = validate();
     if (!formIsValid) return;
 
-    await supabase.from('treatments').upsert(updatedTreatment).eq('id', updatedTreatment.id);
+    await supabase.from('products').upsert(updatedProduct).eq('id', updatedProduct.id);
     revalidatePriceList();
 
-    notify(addNew ? 'New Treatment Added' : 'Treatment Updated');
-    await nextRouter.push('/dashboard/treatments');
+    notify(addNew ? 'New Product Added' : 'Product Updated');
+    await nextRouter.push('/dashboard/products');
     nextRouter.refresh();
   }
 
@@ -65,8 +69,8 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             name="name"
             required
             fullWidth
-            value={updatedTreatment?.name}
-            onChange={updateTreatmentState}
+            value={updatedProduct?.name}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
@@ -77,8 +81,9 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             type="text"
             name="brand"
             fullWidth
-            value={updatedTreatment?.brand}
-            onChange={updateTreatmentState}
+            required
+            value={updatedProduct?.brand}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
@@ -90,20 +95,8 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             name="price"
             required
             fullWidth
-            value={updatedTreatment?.price}
-            onChange={updateTreatmentState}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <TextField
-            id="outlined-basic"
-            label="Usage"
-            variant="outlined"
-            type="text"
-            name="usage"
-            fullWidth
-            value={updatedTreatment?.usage}
-            onChange={updateTreatmentState}
+            value={updatedProduct?.price}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
@@ -114,8 +107,8 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             type="text"
             name="range"
             fullWidth
-            value={updatedTreatment?.range}
-            onChange={updateTreatmentState}
+            value={updatedProduct?.range}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
@@ -126,8 +119,8 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             type="text"
             name="unit"
             fullWidth
-            value={updatedTreatment?.unit}
-            onChange={updateTreatmentState}
+            value={updatedProduct?.size}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid item xs={12}>
@@ -140,18 +133,18 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
             fullWidth
             multiline
             minRows={3}
-            value={updatedTreatment?.description}
-            onChange={updateTreatmentState}
+            value={updatedProduct?.usage}
+            onChange={updateProductState}
           />
         </Grid>
         <Grid container item xs={12} justifyContent="right" spacing={4}>
           <Grid item xs={6} md={3}>
-            <Button variant="outlined" fullWidth onClick={() => addNew ? nextRouter.back() : nextRouter.push('/dashboard/treatments')}>
+            <Button variant="outlined" fullWidth onClick={() => addNew ? nextRouter.back() : nextRouter.push('/dashboard/products')}>
               Cancel
             </Button>
           </Grid>
           <Grid item xs={6} md={3}>
-            <Button variant="contained" fullWidth onClick={upsertTreatment}>
+            <Button variant="contained" fullWidth onClick={upsertProduct}>
               Save
             </Button>
           </Grid>
@@ -161,4 +154,4 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
   );
 }
 
-export default ManageTreatment;
+export default ManageProduct;

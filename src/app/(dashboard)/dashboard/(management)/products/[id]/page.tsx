@@ -1,6 +1,6 @@
 import { Divider, Typography } from '@my-mui/material';
-import ManageTreatment from '../components/ManageTreatment';
 import supabase from '@lib/supabase';
+import ManageProduct from '../components/ManageProduct';
 
 interface IProps {
   params: {
@@ -11,17 +11,17 @@ interface IProps {
 export const revalidate = 0;
 
 const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
-  const { data: treatments } = (await supabase.from('treatments').select().eq('id', params.id));
+  const { data: products } = (await supabase.from('products').select().eq('id', params.id));
 
-  if (!treatments) return null;
-  const treatment = treatments[0]
+  if (!products) return null;
+  const product = products[0]
 
 
   return (
     <>
-      <Typography variant="h2">Edit Treatment</Typography>
+      <Typography variant="h2">Edit Product</Typography>
       <Divider sx={{ margin: '1rem 0 2rem' }} light />
-      <ManageTreatment treatment={treatment} addNew={false} />
+      <ManageProduct product={product} addNew={false} />
     </>
   );
 }

@@ -1,8 +1,8 @@
 import { Chip, Typography } from '@my-mui/material';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 import { ITreatment } from '@lib/supabase/types';
 import classNames from 'classnames';
-import { Edit, Delete } from '@my-mui/icons-material';
+import { Edit } from '@my-mui/icons-material';
 import { IconButton } from '@my-mui/material';
 import Link from 'next/link';
 import DeleteButton from './DeleteButton';
@@ -14,7 +14,7 @@ interface IProps {
 
 const Treatment = ({ treatment, admin }: IProps): JSX.Element | null => {
   const classes = classNames(
-    styles.Treatment,
+    styles.Item,
     admin && styles.admin
   );
 
