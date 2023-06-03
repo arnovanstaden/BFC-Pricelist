@@ -1,7 +1,7 @@
 import { Box } from '@my-mui/material';
 import Heading from './components/Heading/Heading';
-import Product from '@components/items/Product';
-import Treatment from '@components/items/Treatment';
+import Product from './components/items/Product';
+import Treatment from './components/items/Treatment';
 import supabase from '@lib/supabase';
 
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;

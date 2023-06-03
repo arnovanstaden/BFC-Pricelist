@@ -1,0 +1,33 @@
+.Item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+
+  .name {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .price {
+    text-align: right;
+  }
+
+  .unit {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+
+    svg {
+      font-size: 1.25rem;
+    }
+  }
+}

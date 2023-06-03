@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from '@my-mui/material';
-import Product from '@components/items/Product';
+import Product from '../components/items/Product';
 import supabase from '@lib/supabase';
 import Link from 'next/link';
 
@@ -23,7 +23,7 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
       </Grid>
 
 
-      {products.map((product) => <Product key={product.id} product={product} admin />)}
+      {products.map((product) => <Product key={product.id} product={product} />)}
     </>
   )
 };

@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from '@my-mui/material';
-import Treatment from '@components/items/Treatment';
 import supabase from '@lib/supabase';
 import Link from 'next/link';
+import Treatment from '../components/items/Treatment';
 
 export const revalidate = 0;
 
@@ -23,7 +23,7 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
       </Grid>
 
 
-      {treatments.map((treatment) => <Treatment key={treatment.id} treatment={treatment} admin />)}
+      {treatments.map((treatment) => <Treatment key={treatment.id} treatment={treatment} />)}
     </>
   )
 };
