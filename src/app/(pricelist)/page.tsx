@@ -8,7 +8,8 @@ export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined
 
 const PriceListPage = async (): Promise<JSX.Element | null> => {
   const { data: products } = await supabase.from('products').select('*').order('brand', { ascending: true });
-  const { data: treatments } = await supabase.from('treatments').select('*').order('range', { ascending: true })
+  const { data: treatments } = await supabase.from('treatments').select('*').order('range', { ascending: true });
+
   return (
     <>
       {treatments && treatments?.length > 0 && (
