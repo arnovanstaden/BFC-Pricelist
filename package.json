@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "tsc-lint": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -28,6 +29,7 @@
     "encoding": "^0.1.13",
     "eslint": "8.56.0",
     "eslint-config-next": "13.4.3",
+    "husky": "^8.0.3",
     "sass": "^1.62.1",
     "supabase": "^1.62.4"
   }
