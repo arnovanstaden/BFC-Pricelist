@@ -4,7 +4,7 @@ import { ITreatment } from '@lib/supabase/types';
 import { Edit } from '@my-mui/icons-material';
 import { IconButton } from '@my-mui/material';
 import Link from 'next/link';
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../atoms/DeleteButton';
 
 interface IProps {
   treatment: ITreatment;
@@ -31,7 +31,7 @@ const AdminTreatment = ({ treatment }: IProps): JSX.Element | null => (
           <Edit />
         </IconButton>
       </Link>
-      <DeleteButton id={treatment.id} />
+      <DeleteButton id={treatment.id} type="treatment" />
     </div>
   </div>
 );

@@ -4,7 +4,7 @@ import { IProduct } from '@lib/supabase/types';
 import { Edit } from '@my-mui/icons-material';
 import { IconButton } from '@my-mui/material';
 import Link from 'next/link';
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../atoms/DeleteButton';
 
 interface IProps {
   product: IProduct;
@@ -31,7 +31,7 @@ const AdminProduct = ({ product }: IProps): JSX.Element | null => (
           <Edit />
         </IconButton>
       </Link>
-      <DeleteButton id={product.id} />
+      <DeleteButton id={product.id} type="product" />
     </div>
   </div>
 );

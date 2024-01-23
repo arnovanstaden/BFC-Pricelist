@@ -1,7 +1,6 @@
 import { notify } from '@lib/notification';
 import supabase from '@lib/supabase';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useAuth = () => {
   const nextRouter = useRouter();
