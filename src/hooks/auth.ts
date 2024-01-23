@@ -17,7 +17,7 @@ export const useAuth = () => {
         return nextRouter.replace('/dashboard');
       }
 
-      notify('Incorrect Credentials');
+      notify('Incorrect Credentials', 'error');
     })
 
   const logoutUser = async () => {
