@@ -1,7 +1,6 @@
 import { notify } from '@lib/notification';
 import supabase from '@lib/supabase';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const useAuth = () => {
   const nextRouter = useRouter();
@@ -17,7 +16,7 @@ export const useAuth = () => {
         return nextRouter.replace('/dashboard');
       }
 
-      notify('Incorrect Credentials');
+      notify('Incorrect Credentials', 'error');
     })
 
   const logoutUser = async () => {

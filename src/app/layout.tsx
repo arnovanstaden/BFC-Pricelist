@@ -2,6 +2,7 @@ import { Theme } from 'src/theme';
 import '@styles/global.scss';
 import { Josefin_Sans, Lato } from 'next/font/google'
 import classNames from 'classnames';
+import Notification from '@components/atoms/Notification';
 
 const josefinSans = Josefin_Sans({
   style: ['normal', 'italic'],
@@ -26,6 +27,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body>
         <Theme>
           {children}
+          <Notification />
         </Theme>
       </body>
     </html>

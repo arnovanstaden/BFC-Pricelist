@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Header from '@components/Header';
 import AuthWrapper from '@components/AuthWrapper';
-import Notification from '@components/atoms/Notification';
 import { Grid, Container } from '@my-mui/material';
 import SideBar from './components/SideBar';
 
@@ -32,8 +31,6 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
           </Grid>
         </Grid>
       </main>
-
-      <Notification />
     </AuthWrapper>
   )
 }
