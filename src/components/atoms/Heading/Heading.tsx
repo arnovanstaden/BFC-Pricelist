@@ -3,12 +3,12 @@ import styles from './Heading.module.scss';
 
 const Heading = ({ children }: { children: string }): JSX.Element | null => {
   return (
-    <>
-      <Typography variant="h3" className={styles.Heading}>
+    <div className={styles.Heading}>
+      <Typography variant="h3" >
         {children}
       </Typography>
-      <Divider sx={{ marginBottom: '2rem' }} />
-    </>
+      <Divider />
+    </div>
   );
 };
 

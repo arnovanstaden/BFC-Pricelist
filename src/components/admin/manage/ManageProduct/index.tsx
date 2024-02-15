@@ -131,7 +131,7 @@ const ManageProduct = ({ product, addNew }: { product?: IProduct, addNew: boolea
             fullWidth
             multiline
             minRows={3}
-            value={updatedProduct?.usage}
+            value={updatedProduct?.description}
             onChange={updateProductState}
           />
         </Grid>

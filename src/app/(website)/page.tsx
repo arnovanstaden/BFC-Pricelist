@@ -1,4 +1,4 @@
-import Heading from '../../components/admin/layout/Heading/Heading';
+import Heading from '../../components/atoms/Heading/Heading';
 import { getProducts } from '@lib/products';
 import { getTreatments } from '@lib/treatments';
 import styles from './styles.module.scss';
@@ -18,7 +18,9 @@ const PriceListPage = async (): Promise<JSX.Element | null> => {
             Treatments
           </Heading>
 
-          {treatments?.map((treatment) => <PriceListItem key={treatment.id} treatment={treatment} />)}
+          <div className={styles.list}>
+            {treatments?.map((treatment) => <PriceListItem key={treatment.id} treatment={treatment} />)}
+          </div>
         </div>
       )}
       {
@@ -27,7 +29,9 @@ const PriceListPage = async (): Promise<JSX.Element | null> => {
             <Heading>
               Products
             </Heading>
-            {products?.map((product) => <PriceListItem key={product.id} product={product} />)}
+            <div className={styles.list}>
+              {products?.map((product) => <PriceListItem key={product.id} product={product} />)}
+            </div>
           </div>
         )
       }

@@ -1,5 +1,9 @@
 .Heading {
+  margin-bottom: 2rem;
+
   @media print {
+    margin-bottom: 1rem;
+
     font-size: 20px;
   }
 }
