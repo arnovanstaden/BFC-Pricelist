@@ -18,7 +18,7 @@ export interface Database {
           price: number
           range: string | null
           size: string | null
-          usage: string | null
+          description: string | null
         }
         Insert: {
           brand: string
@@ -28,7 +28,7 @@ export interface Database {
           price: number
           range?: string | null
           size?: string | null
-          usage?: string | null
+          description?: string | null
         }
         Update: {
           brand?: string
@@ -38,7 +38,7 @@ export interface Database {
           price?: number
           range?: string | null
           size?: string | null
-          usage?: string | null
+          description?: string | null
         }
       }
       treatments: {

@@ -1,0 +1,22 @@
+.PriceListPage {
+  display: grid;
+  gap: 48px;
+  grid-template-areas:
+    "treatments"
+    "products";
+
+
+  .treatments {
+    grid-area: treatments;
+  }
+
+  .products {
+    grid-area: products;
+  }
+
+  @media print {
+    gap: 32px;
+    grid-template-areas:
+      "products treatments";
+  }
+}
