@@ -4,7 +4,7 @@ import { Grid, TextField, Button, Box } from '@mui/material';
 import { IProduct } from '@types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { notify } from '@lib/notification';
+import { notify } from 'src/utils/notifications';
 import { updateProduct } from '@lib/products';
 
 const ManageProduct = ({ product, addNew }: { product?: IProduct, addNew: boolean }): JSX.Element => {

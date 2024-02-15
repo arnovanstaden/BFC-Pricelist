@@ -1,7 +1,7 @@
 'use client';
 
-import { notify } from '@lib/notification';
-import { revalidatePriceList } from '@lib/revalidation';
+import { notify } from 'src/utils/notifications';
+import { revalidatePriceList } from 'src/utils/revalidation';
 import { Box, Button, Grid, Modal, Typography } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 import { IconButton } from '@mui/material';

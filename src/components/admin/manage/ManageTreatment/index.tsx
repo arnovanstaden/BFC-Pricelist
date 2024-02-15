@@ -4,7 +4,7 @@ import { Grid, TextField, Button, Box } from '@mui/material';
 import { ITreatment } from '@types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { notify } from '@lib/notification';
+import { notify } from 'src/utils/notifications';
 import { updateTreatment } from '@lib/treatments';
 
 const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew: boolean }): JSX.Element => {

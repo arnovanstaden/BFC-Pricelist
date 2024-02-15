@@ -1,5 +1,5 @@
 import { getProducts } from '@lib/products';
-import { revalidatePriceList } from '@lib/revalidation';
+import { revalidatePriceList } from 'src/utils/revalidation';
 import { NextResponse } from 'next/server';
 
 export async function HEAD() {
