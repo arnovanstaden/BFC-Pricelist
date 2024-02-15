@@ -1,6 +1,6 @@
 import Header from '@components/Header';
 import { Container } from '@mui/material';
-import { generateCustomMetaData } from 'src/utils/metadata';
+import { generateCustomMetaData } from '@utils/metadata';
 
 export const metadata = generateCustomMetaData({
   title: 'The Beautox and Filler Clinic',

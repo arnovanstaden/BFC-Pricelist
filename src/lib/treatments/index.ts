@@ -1,4 +1,4 @@
-import { revalidatePriceList } from 'src/utils/revalidation';
+import { revalidatePriceList } from '@utils/revalidation';
 import supabase from '@lib/supabase';
 import { ITreatment } from '@types';
 

@@ -3,7 +3,7 @@ import Product from '../../../../components/admin/list/Product';
 import Link from 'next/link';
 import { getProducts } from '@lib/products';
 
-export const revalidate = 0;
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const ProductsPage = async (): Promise<JSX.Element | null> => {
   const products = await getProducts({ column: 'name' });

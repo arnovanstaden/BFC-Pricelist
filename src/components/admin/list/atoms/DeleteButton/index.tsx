@@ -1,9 +1,9 @@
 'use client';
 
-import { notify } from 'src/utils/notifications';
-import { revalidatePriceList } from 'src/utils/revalidation';
+import { notify } from '@utils/notifications';
+import { revalidatePriceList } from '@utils/revalidation';
 import { Box, Button, Grid, Modal, Typography } from '@mui/material';
-import { Delete } from '@mui/icons-material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -31,7 +31,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = (props) => {
   return (
     <>
       <IconButton onClick={() => setOpenModal(true)}>
-        <Delete />
+        <DeleteIcon />
       </IconButton>
       <Modal
         open={openModal}

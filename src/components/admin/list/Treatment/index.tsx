@@ -1,7 +1,7 @@
 import { Chip, Typography } from '@mui/material';
 import styles from '../styles.module.scss';
 import { ITreatment } from '@types';
-import { Edit } from '@mui/icons-material/';
+import EditIcon from '@mui/icons-material/Edit';
 import { IconButton } from '@mui/material';
 import Link from 'next/link';
 import DeleteButton from '../atoms/DeleteButton';
@@ -28,7 +28,7 @@ const AdminTreatment = ({ treatment }: IProps): JSX.Element | null => (
     <div className={styles.actions}>
       <Link href={`/dashboard/treatments/${treatment.id}`}>
         <IconButton>
-          <Edit />
+          <EditIcon />
         </IconButton>
       </Link>
       <DeleteButton id={treatment.id} type="treatment" />

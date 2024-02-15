@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Treatment from '../../../../components/admin/list/Treatment';
 import { getTreatments } from '@lib/treatments';
 
-export const revalidate = 0;
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const TreatmentsPage = async (): Promise<JSX.Element | null> => {
   const treatments = await getTreatments({ column: 'name' });

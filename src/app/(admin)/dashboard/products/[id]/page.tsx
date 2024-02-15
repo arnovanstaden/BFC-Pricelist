@@ -9,7 +9,7 @@ interface IProps {
   }
 }
 
-export const revalidate = 0;
+export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
   const product = await getProduct(params.id)
