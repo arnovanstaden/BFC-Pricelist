@@ -13,11 +13,11 @@ const nextConfig = {
     prependData: '@import "@styles/_variables.scss";',
   },
   modularizeImports: {
-    "@mui/material": {
-      transform: "@mui/material/{{member}}"
+    '@mui/material': {
+      transform: '@mui/material/{{member}}'
     },
-    "@mui/icons-material": {
-      transform: "@mui/material/{{member}}"
+    '@mui/icons-material': {
+      transform: '@mui/material/{{member}}'
     },
   }
 }

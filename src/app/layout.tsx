@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Theme } from 'src/theme';
 import '@styles/global.scss';
 import { Josefin_Sans, Lato } from 'next/font/google'

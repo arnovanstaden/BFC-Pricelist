@@ -10,7 +10,7 @@ export const Theme = ({ children }: { children: React.ReactNode }): JSX.Element 
   const baseTheme: ThemeOptions = {
     palette,
     typography,
-    shadows: Array(25).fill("none") as Shadows,
+    shadows: Array(25).fill('none') as Shadows,
     shape: {
       borderRadius: 0
     }
