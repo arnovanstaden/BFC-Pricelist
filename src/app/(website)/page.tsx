@@ -1,9 +1,8 @@
-import { Box } from '@mui/material';
-import Heading from '../../components/admin/layout/Heading/Heading';
-import Product from '../../components/website/pricelist/Product';
-import Treatment from '../../components/website/pricelist/Treatment';
+import Heading from '../../components/atoms/Heading/Heading';
 import { getProducts } from '@lib/products';
 import { getTreatments } from '@lib/treatments';
+import styles from './styles.module.scss';
+import PriceListItem from '@components/website/pricelist/PriceListItem/PriceListItem';
 
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
@@ -12,29 +11,31 @@ const PriceListPage = async (): Promise<JSX.Element | null> => {
   const treatments = await getTreatments({ column: 'name' });
 
   return (
-    <>
+    <div className={styles.PriceListPage}>
       {treatments && treatments?.length > 0 && (
-        <>
+        <div className={styles.treatments}>
           <Heading>
             Treatments
           </Heading>
 
-          {treatments?.map((treatment) => <Treatment key={treatment.id} treatment={treatment} />)}
-        </>
+          <div className={styles.list}>
+            {treatments?.map((treatment) => <PriceListItem key={treatment.id} treatment={treatment} />)}
+          </div>
+        </div>
       )}
-
-      <Box sx={{ paddingTop: '3rem' }} />
       {
         products && products.length > 0 && (
-          <>
+          <div className={styles.products}>
             <Heading>
               Products
             </Heading>
-            {products?.map((product) => <Product key={product.id} product={product} />)}
-          </>
+            <div className={styles.list}>
+              {products?.map((product) => <PriceListItem key={product.id} product={product} />)}
+            </div>
+          </div>
         )
       }
-    </>
+    </div>
   );
 };
 

@@ -7,3 +7,9 @@ export async function HEAD() {
   await getProducts();
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
+
+export async function GET() {
+  await revalidatePriceList();
+  await getProducts();
+  return NextResponse.json({ revalidated: true, now: Date.now() });
+}

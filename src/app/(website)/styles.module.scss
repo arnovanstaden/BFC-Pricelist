@@ -1,0 +1,19 @@
+.PriceListPage {
+  display: grid;
+  gap: 48px;
+
+  .list {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media print {
+    gap: 32px;
+
+    .list {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+      row-gap: 8px;
+    }
+  }
+}

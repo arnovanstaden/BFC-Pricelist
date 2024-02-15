@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: 'Dashboard | The Beautox and Filler Clinic',
 }
 
+export const revalidate = 0;
+
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <AuthWrapper>

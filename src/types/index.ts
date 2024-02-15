@@ -6,7 +6,7 @@ export interface IProduct {
   price: number
   range: string | null
   size: string | null
-  usage: string | null
+  description: string | null
 }
 
 export interface ITreatment {
