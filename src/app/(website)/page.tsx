@@ -2,13 +2,14 @@ import { Box } from '@mui/material';
 import Heading from '../../components/admin/layout/Heading/Heading';
 import Product from '../../components/website/pricelist/Product';
 import Treatment from '../../components/website/pricelist/Treatment';
-import supabase from '@lib/supabase';
+import { getProducts } from '@lib/products';
+import { getTreatments } from '@lib/treatments';
 
 export const revalidate = process.env.NODE_ENV === 'development' ? 0 : undefined;
 
 const PriceListPage = async (): Promise<JSX.Element | null> => {
-  const { data: products } = await supabase.from('products').select('*').order('brand', { ascending: true });
-  const { data: treatments } = await supabase.from('treatments').select('*').order('range', { ascending: true });
+  const products = await getProducts({ column: 'name' });
+  const treatments = await getTreatments({ column: 'name' });
 
   return (
     <>

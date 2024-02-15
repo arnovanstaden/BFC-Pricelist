@@ -1,18 +1,15 @@
 'use client';
 
 import { Grid, TextField, Button, Box } from '@mui/material';
-import { ITreatment } from '@lib/supabase/types';
+import { ITreatment } from '@types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
-import { revalidatePriceList } from '@lib/revalidation';
+import { updateTreatment } from '@lib/treatments';
 
 const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
-
   const [updatedTreatment, setUpdatedTreatment] = useState(treatment);
-
 
   const validate = (): boolean => {
     if (!updatedTreatment?.name) {
@@ -25,7 +22,6 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
     }
     return true;
   }
-
 
   const updateTreatmentState = (e: ChangeEvent<HTMLInputElement>) => {
     const field = e.target.name;
@@ -41,8 +37,7 @@ const ManageTreatment = ({ treatment, addNew }: { treatment?: ITreatment, addNew
     const formIsValid = validate();
     if (!formIsValid) return;
 
-    await supabase.from('treatments').upsert(updatedTreatment).eq('id', updatedTreatment.id);
-    revalidatePriceList();
+    await updateTreatment(updatedTreatment);
 
     notify(addNew ? 'New Treatment Added' : 'Treatment Updated');
     await nextRouter.push('/dashboard/treatments');

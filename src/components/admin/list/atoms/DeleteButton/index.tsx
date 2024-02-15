@@ -2,16 +2,17 @@
 
 import { notify } from '@lib/notification';
 import { revalidatePriceList } from '@lib/revalidation';
-import supabase from '@lib/supabase';
 import { Box, Button, Grid, Modal, Typography } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from './styles.module.scss';
+import { deleteTreatment } from '@lib/treatments';
+import { deleteProduct } from '@lib/products';
 
 interface DeleteButtonProps {
-  id: number;
+  id: string;
   type: 'product' | 'treatment';
 }
 
@@ -21,7 +22,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = (props) => {
 
   const deleteItem = async () => {
     setOpenModal(false)
-    await supabase.from(props.type === 'product' ? 'products' : 'treatments').delete().eq('id', props.id);
+    props.type === 'product' ? deleteProduct(props.id) : deleteTreatment(props.id);
     await revalidatePriceList();
     await nextRouter.refresh();
     notify(props.type === 'product' ? 'Product Deleted' : 'Treatment Deleted');

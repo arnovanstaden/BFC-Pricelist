@@ -1,3 +1,5 @@
-export const revalidatePriceList = async () => await fetch('/revalidate', {
-  method: 'POST',
-})
+import { revalidatePath } from 'next/cache'
+
+export const revalidatePriceList = () => {
+  revalidatePath('/', 'layout');
+}

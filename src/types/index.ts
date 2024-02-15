@@ -1,7 +1,7 @@
 export interface IProduct {
   brand: string
   created_at: string | null
-  id: number
+  id: string
   name: string
   price: number
   range: string | null
@@ -13,7 +13,7 @@ export interface ITreatment {
   brand: string | null
   created_at: string | null
   description: string | null
-  id: number
+  id: string
   name: string
   price: number
   range: string | null

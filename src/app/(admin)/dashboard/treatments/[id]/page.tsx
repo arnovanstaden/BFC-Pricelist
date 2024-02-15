@@ -1,6 +1,7 @@
 import { Divider, Typography } from '@mui/material';
 import ManageTreatment from '../../../../../components/admin/manage/ManageTreatment';
-import supabase from '@lib/supabase';
+import { getTreatment } from '@lib/treatments';
+import { notFound } from 'next/navigation';
 
 interface IProps {
   params: {
@@ -11,11 +12,9 @@ interface IProps {
 export const revalidate = 0;
 
 const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
-  const { data: treatments } = (await supabase.from('treatments').select().eq('id', params.id));
+  const treatment = await getTreatment(params.id)
 
-  if (!treatments) return null;
-  const treatment = treatments[0]
-
+  if (!treatment) return notFound();
 
   return (
     <>

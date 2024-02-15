@@ -1,6 +1,6 @@
 import { Chip, Typography } from '@mui/material';
 import styles from '../styles.module.scss';
-import { IProduct } from '@lib/supabase/types';
+import { IProduct } from '@types';
 import { Edit } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import Link from 'next/link';

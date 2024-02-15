@@ -1,12 +1,11 @@
 'use client';
 
 import { Grid, TextField, Button, Box } from '@mui/material';
-import { IProduct } from '@lib/supabase/types';
+import { IProduct } from '@types';
 import { ChangeEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import supabase from '@lib/supabase';
 import { notify } from '@lib/notification';
-import { revalidatePriceList } from '@lib/revalidation';
+import { updateProduct } from '@lib/products';
 
 const ManageProduct = ({ product, addNew }: { product?: IProduct, addNew: boolean }): JSX.Element => {
   const nextRouter = useRouter();
@@ -45,8 +44,7 @@ const ManageProduct = ({ product, addNew }: { product?: IProduct, addNew: boolea
     const formIsValid = validate();
     if (!formIsValid) return;
 
-    await supabase.from('products').upsert(updatedProduct).eq('id', updatedProduct.id);
-    revalidatePriceList();
+    await updateProduct(updatedProduct);
 
     notify(addNew ? 'New Product Added' : 'Product Updated');
     await nextRouter.push('/dashboard/products');

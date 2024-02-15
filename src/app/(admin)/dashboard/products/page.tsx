@@ -1,12 +1,12 @@
 import { Button, Grid, Typography } from '@mui/material';
 import Product from '../../../../components/admin/list/Product';
-import supabase from '@lib/supabase';
 import Link from 'next/link';
+import { getProducts } from '@lib/products';
 
 export const revalidate = 0;
 
-const TreatmentsPage = async (): Promise<JSX.Element | null> => {
-  const { data: products } = await supabase.from('products').select('*').order('range', { ascending: true })
+const ProductsPage = async (): Promise<JSX.Element | null> => {
+  const products = await getProducts({ column: 'name' });
 
   if (!products || products.length < 0) {
     return <Typography >No Products</Typography>;
@@ -28,4 +28,4 @@ const TreatmentsPage = async (): Promise<JSX.Element | null> => {
   )
 };
 
-export default TreatmentsPage;
+export default ProductsPage;

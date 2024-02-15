@@ -1,6 +1,7 @@
 import { Divider, Typography } from '@mui/material';
-import supabase from '@lib/supabase';
 import ManageProduct from '../../../../../components/admin/manage/ManageProduct';
+import { getProduct } from '@lib/products';
+import { notFound } from 'next/navigation';
 
 interface IProps {
   params: {
@@ -11,11 +12,9 @@ interface IProps {
 export const revalidate = 0;
 
 const EditPage = async ({ params }: IProps): Promise<JSX.Element | null> => {
-  const { data: products } = (await supabase.from('products').select().eq('id', params.id));
+  const product = await getProduct(params.id)
 
-  if (!products) return null;
-  const product = products[0]
-
+  if (!product) return notFound();
 
   return (
     <>

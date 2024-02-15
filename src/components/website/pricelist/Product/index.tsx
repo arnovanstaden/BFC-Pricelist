@@ -1,6 +1,6 @@
 import { Chip, Typography } from '@mui/material';
 import styles from '../styles.module.scss';
-import { IProduct } from '@lib/supabase/types';
+import { IProduct } from '@types';
 
 interface IProps {
   product: IProduct;
