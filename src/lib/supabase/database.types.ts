@@ -13,7 +13,7 @@ export interface Database {
         Row: {
           brand: string
           created_at: string | null
-          id: number
+          id: string
           name: string
           price: number
           range: string | null
@@ -23,7 +23,7 @@ export interface Database {
         Insert: {
           brand: string
           created_at?: string | null
-          id?: number
+          id?: string
           name: string
           price: number
           range?: string | null
@@ -33,7 +33,7 @@ export interface Database {
         Update: {
           brand?: string
           created_at?: string | null
-          id?: number
+          id?: string
           name?: string
           price?: number
           range?: string | null
@@ -46,7 +46,7 @@ export interface Database {
           brand: string | null
           created_at: string | null
           description: string | null
-          id: number
+          id?: string
           name: string
           price: number
           range: string | null
@@ -57,7 +57,7 @@ export interface Database {
           brand?: string | null
           created_at?: string | null
           description?: string | null
-          id?: number
+          id?: string
           name: string
           price: number
           range?: string | null
@@ -68,7 +68,7 @@ export interface Database {
           brand?: string | null
           created_at?: string | null
           description?: string | null
-          id?: number
+          id?: string
           name?: string
           price?: number
           range?: string | null

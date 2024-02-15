@@ -1,4 +1,4 @@
-import { notify } from '@lib/notification';
+import { notify } from '@utils/notifications';
 import supabase from '@lib/supabase';
 import { useRouter } from 'next/navigation';
 

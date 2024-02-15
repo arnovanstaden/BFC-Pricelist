@@ -17,4 +17,21 @@
   .icon {
     color: black;
   }
+
+  .printHeading {
+    display: none;
+  }
+
+  @media print {
+    box-shadow: none;
+    border: none;
+
+    .social {
+      display: none;
+    }
+
+    .printHeading {
+      display: block;
+    }
+  }
 }
